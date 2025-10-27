@@ -1,0 +1,23 @@
+# php-app.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache-deployment
+spec:
+  # Sets the desired number of Pod replicas
+  replicas: 5 
+  selector:
+    matchLabels:
+      app: php-apache-app
+  template:
+    metadata:
+      labels:
+        app: php-apache-app
+    spec:
+      containers:
+      - name: php-apache-container
+        # Specifies the image to use
+        image: php:8.2-apache 
+        ports:
+        # Exposes the container port (typically 80 for Apache)
+        - containerPort: 80

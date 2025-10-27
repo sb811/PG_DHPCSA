@@ -1,0 +1,23 @@
+version: '3'
+services:
+  webserver:
+    container_name: nodejs-webserver
+    build: ./webserver
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis-server
+      - mongodb
+
+  redis-server:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodatabase
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"

@@ -1,0 +1,30 @@
+# services:
+#   python_app:
+#     build: ./PYTHON
+#     command: ["sh", "-c", "sleep 10 && python select.py"]
+
+#     depends_on:
+#       - mysql_db
+#   mysql_db:
+#     build: ./MYSQL
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=root 
+#       - MYSQL_DATABASE=employee_db
+#     ports:
+#       - 3306:3306
+
+
+services:
+  python_app:
+    build: ./PYTHON
+    command: ["sh", "-c", "sleep 10 && python select.py"]
+    depends_on:
+      - mysql_db
+
+  mysql_db:
+    build: ./MYSQL
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=employee_db
+    ports:
+      - "3306:3306"

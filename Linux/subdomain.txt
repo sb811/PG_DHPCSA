@@ -1,0 +1,13 @@
+www
+accounts
+fedback
+admin
+api
+qa
+careers
+payment
+contact
+service
+product
+k8s
+jenkins

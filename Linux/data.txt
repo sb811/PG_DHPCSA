@@ -1,0 +1,6 @@
+accounts
+payments
+cash
+business
+google
+salary

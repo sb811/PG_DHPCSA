@@ -1,0 +1,16 @@
+services:
+  web:
+    build: ./apachedemo
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8000:80"
+  db:
+    image: mysql:latest
+    volumes:      #Creates a db_data director to
+      - ./db_data:/var/lib/mysql #persist database data     
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: docker_db 
